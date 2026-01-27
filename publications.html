@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RAMMP Publications - Research papers, articles, and technical reports from the RAMMP consortium.">
+    <title>Publications - RAMMP</title>
+    <link rel="icon" type="image/png" href="assets/images/RAMMP Logo favicon.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(34, 169, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
+                    <a href="publications.html" class="font-raleway font-medium text-bright-blue">Publications</a>
+                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
+                <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-bright-blue">Publications</a>
+                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section class="pt-24 pb-12 bg-gradient-to-br from-deep-blue to-bright-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">Publications</h1>
+            <p class="font-raleway font-light text-xl text-white/90 max-w-3xl mx-auto">
+                Research papers, technical reports, and articles from the RAMMP consortium.
+            </p>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Coming Soon Notice -->
+            <div class="bg-bright-blue/10 dark:bg-bright-blue/20 border border-bright-blue/30 rounded-xl p-8 mb-12 text-center">
+                <svg class="w-16 h-16 mx-auto mb-4 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                <h2 class="font-montserrat font-bold text-2xl text-near-black dark:text-white mb-4">Publications Coming Soon</h2>
+                <p class="font-raleway text-dark-gray dark:text-gray-300 max-w-2xl mx-auto">
+                    The RAMMP project has recently launched. As our research progresses, we will share publications, technical reports, and findings here. Check back soon for updates!
+                </p>
+            </div>
+
+            <!-- Related Research Section -->
+            <h2 class="font-montserrat font-bold text-3xl text-near-black dark:text-white mb-8">Related Research</h2>
+            <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-8">
+                Explore foundational research from our consortium partners in assistive robotics and rehabilitation engineering.
+            </p>
+
+            <div class="space-y-6">
+                <!-- HERL Publications -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="assets/images/partners/13.png" alt="HERL" class="h-12 w-auto">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Human Engineering Research Laboratories Publications</h3>
+                            <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">
+                                Decades of research in wheelchair design, rehabilitation engineering, and assistive technology from the leading research lab at University of Pittsburgh.
+                            </p>
+                            <a href="https://www.herl.pitt.edu/publications" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300">
+                                View Publications
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CMU Robotics Publications -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="assets/images/partners/11.png" alt="CMU" class="h-12 w-auto">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">CMU Robotic Caregiving Lab Publications</h3>
+                            <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">
+                                Research on human-robot interaction, assistive manipulation, and caregiving robotics from Carnegie Mellon's Robotics Institute.
+                            </p>
+                            <a href="https://www.ri.cmu.edu/robotics-groups/robotic-caregiving-and-human-interaction-lab/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300">
+                                View Research
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cornell Emprise Lab -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="assets/images/partners/12.png" alt="Cornell" class="h-12 w-auto">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Cornell Emprise Lab Publications</h3>
+                            <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">
+                                Research on embodied AI, robot learning, and assistive robotics from Cornell University's Emprise Lab.
+                            </p>
+                            <a href="https://emprise.cs.cornell.edu/publications/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300">
+                                View Publications
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press & Media Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl text-near-black dark:text-white mb-4">Press & Media Coverage</h2>
+            <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-8">
+                News coverage and announcements about the RAMMP initiative from our kickoff in November 2025.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Pitt Wire -->
+                <a href="https://www.pittwire.pitt.edu/features-articles/2025/11/04/advanced-research-projects-agency-health-rammp-herl" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">University News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">ARPA-H RAMMP Initiative at HERL</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Pitt Wire</p>
+                </a>
+
+                <!-- New Mobility -->
+                <a href="https://newmobility.com/this-wheelchair-user-was-just-awarded-41-5-million-to-design-the-power-wheelchair-of-the-future/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-raleway mb-3">Feature</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Designing the Power Wheelchair of the Future</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">New Mobility</p>
+                </a>
+
+                <!-- Pittsburgh Post-Gazette -->
+                <a href="https://www.post-gazette.com/news/health/2025/11/04/pitt-wheelchair-grant/stories/202511040093" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Pitt Wheelchair Grant Coverage</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Pittsburgh Post-Gazette</p>
+                </a>
+
+                <!-- CMU -->
+                <a href="https://www.ri.cmu.edu/cmu-collaborates-on-project-to-develop-future-robotic-wheelchair/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">University News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">CMU Collaborates on Future Robotic Wheelchair</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">CMU Robotics Institute</p>
+                </a>
+
+                <!-- Cornell -->
+                <a href="https://news.cornell.edu/stories/2025/11/grant-fund-robotic-mealtime-system-people-disabilities" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">University News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Grant to Fund Robotic Mealtime System</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Cornell Chronicle</p>
+                </a>
+
+                <!-- Purdue -->
+                <a href="https://engineering.purdue.edu/BME/AboutUs/News/2025/purdue-joins-415-million-arpah-project-to-advance-robotic-assistive-mobility-for-people-with-disabilities" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">University News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Purdue Joins $41.5M ARPA-H Project</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Purdue Engineering</p>
+                </a>
+
+                <!-- Northeastern -->
+                <a href="https://news.northeastern.edu/2025/11/05/autonomous-wheelchair-robot-arm-research/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">University News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Autonomous Wheelchair Robot Arm Research</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Northeastern News</p>
+                </a>
+
+                <!-- Kinova -->
+                <a href="https://www.kinovarobotics.com/resource/kinova-joins-arpa-h-project-to-advance-assistive-mobility-and-independence" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-raleway mb-3">Partner News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Kinova Joins ARPA-H Project</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Kinova Robotics</p>
+                </a>
+
+                <!-- PRNewswire -->
+                <a href="https://www.prnewswire.com/news-releases/atdev-joins-41-million-arpa-h-initiative-to-build-the-future-of-robotic-mobility-and-independence-302606603.html" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-raleway mb-3">Press Release</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">ATDev Joins $41M ARPA-H Initiative</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">PR Newswire</p>
+                </a>
+
+                <!-- Robotics Business News -->
+                <a href="https://www.roboticsbusinessnews.com/news/65/1952/atdev-selected-as-subcontractor-for-arpa-hfunded-rammp-program-to-advance-next-generation-robotic-assistive-mobility-technologies.html" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">Industry News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">ATDev Selected for RAMMP Program</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Robotics Business News</p>
+                </a>
+
+                <!-- Mobility Management -->
+                <a href="https://mobilitymgmt.com/herl-awarded-41-5m-grant-to-develop-rammp-system-of-robotics-wheelchairs/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">Industry News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">HERL Awarded $41.5M Grant for RAMMP</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Mobility Management</p>
+                </a>
+
+                <!-- Pittsburgh Magazine -->
+                <a href="https://www.pittsburghmagazine.com/university-of-pittsburgh-kicks-off-project-to-imagine-a-better-wheelchair/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-raleway mb-3">Feature</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Imagining a Better Wheelchair</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Pittsburgh Magazine</p>
+                </a>
+
+                <!-- Pitt Med School -->
+                <a href="https://www.medschool.pitt.edu/news/university-pittsburgh-lead-team-415m-project-create-robotic-wheelchair" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">University News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Pitt to Lead $41.5M Robotic Wheelchair Project</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Pitt Med School</p>
+                </a>
+
+                <!-- Six Degrees of Robotics -->
+                <a href="https://sixdegreesofrobotics.com/robot-news/reimagining-mobility-cmu-helps-develop-next-generation-robotic-wheelchairs" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">Industry News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Reimagining Mobility: Next-Gen Wheelchairs</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Six Degrees of Robotics</p>
+                </a>
+
+                <!-- EngTechnica -->
+                <a href="https://engtechnica.com/atdev-joins-41m-arpa-h-project-to-drive-robotic-mobility/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 block">
+                    <span class="inline-block px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">Industry News</span>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">ATDev Joins $41M Project for Robotic Mobility</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">EngTechnica</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <a href="index.html" class="inline-block">
+                            <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                        </a>
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Building the next generation of robotic assistive mobility and manipulation technologies to empower independence.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html" class="text-gray-300 hover:text-bright-blue transition-colors">Home</a></li>
+                        <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
+                        <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
+                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
+                        <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400">© <span id="current-year">2024</span> RAMMP Consortium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

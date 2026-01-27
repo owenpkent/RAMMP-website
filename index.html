@@ -1,113 +1,379 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RAMMP - Something extraordinary is coming">
-    <title>RAMMP - Coming Soon</title>
+    <meta name="description" content="RAMMP - Robotic Assistive Mobility and Manipulation Platform. A $41M ARPA-H funded initiative to create next-generation assistive robotics.">
+    <title>RAMMP - Robotic Assistive Mobility and Manipulation Platform</title>
     <link rel="icon" type="image/png" href="assets/images/RAMMP Logo favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        #canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+        
+        .dark .glass-card {
+            background: rgba(3, 9, 13, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .content {
-            position: relative;
-            z-index: 1;
+        
+        .brand-gradient {
+            background: linear-gradient(135deg, #22a9ff 0%, #115C90 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.25);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.4);
         }
     </style>
 </head>
-<body>
-    <canvas id="canvas"></canvas>
-    <div class="content min-h-screen flex items-center justify-center">
-        <div class="text-center px-8 max-w-2xl">
-            <img src="assets/images/RAMMP Logo transparent.png" alt="RAMMP Logo" class="w-64 md:w-80 mx-auto mb-8 drop-shadow-2xl">
-            <p class="text-xl md:text-2xl text-white/95 font-light mb-8 leading-relaxed">
-                Something extraordinary is on the horizon.<br>
-                The future is closer than you think.
-            </p>
-            <p class="text-sm font-light text-white/70 uppercase tracking-[0.3em]">
-                Coming Soon
-            </p>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-bright-blue">Home</a>
+                    <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
+                    <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications</a>
+                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-bright-blue">Home</a>
+                <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
+                <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications</a>
+                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section class="relative pt-16 pb-20 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="assets/images/rammp-hero.jpg" alt="RAMMP Initiative - Robotic Assistive Mobility and Manipulation" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-3xl bg-black/30 backdrop-blur-sm rounded-xl p-8 shadow-lg">
+                <div class="mb-6">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-16 w-auto mb-4">
+                </div>
+                <h1 class="font-montserrat font-bold text-3xl lg:text-4xl text-white mb-4">Robotic Assistive Mobility and Manipulation Platform</h1>
+                <p class="font-raleway font-light text-xl text-gray-200 mb-8">
+                    Building the next generation of robotic assistive mobility devices.
+                </p>
+                <a href="#overview" class="inline-block font-montserrat font-semibold bg-bright-blue text-white px-8 py-3 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Overview</h2>
+                    <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-6">
+                        The <strong><a href="https://arpa-h.gov/explore-funding/awardees" target="_blank" rel="noopener noreferrer" class="text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">Robotic Assistive Mobility and Manipulation Platform (RAMMP)</a></strong> is a $41 million ARPA-H funded program led by the University of Pittsburgh to create the next generation of open-source robotic assistive mobility and manipulation technologies.
+                    </p>
+                    <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-6">
+                        RAMMP aims to empower people with mobility issues to live more independently by combining advanced robotics, artificial intelligence, and smart mobility. The program is designed to enable greater autonomy, helping users perform daily tasks safely and independently.
+                    </p>
+                </div>
+                <div class="relative">
+                    <img src="assets/images/rammp-kickoff.jpg" alt="RAMMP Kickoff event with team members" class="w-full rounded-xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Foundation Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                <div>
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Research Foundation</h2>
+                    <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-6">
+                        RAMMP brings together a world-class consortium of leading universities, research laboratories, and industry partners. This collaborative effort combines expertise in rehabilitation engineering, robotics, artificial intelligence, and assistive technology to create transformative solutions for people with mobility challenges.
+                    </p>
+                </div>
+                <div class="relative flex justify-center">
+                    <a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity duration-300">
+                        <img src="assets/images/partners/logo.svg" alt="ARPA-H (Advanced Research Projects Agency for Health) logo - Click to visit their website" style="width: 400px; height: 200px; object-fit: contain;">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Lead Institution Box -->
+            <div class="bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-xl mb-8">
+                <h3 class="font-montserrat font-bold text-2xl text-near-black dark:text-white mb-6">Lead Institution</h3>
+                <!-- Mobile layout: stacked -->
+                <div class="flex flex-col items-center gap-4 mb-6 md:hidden">
+                    <div class="flex gap-4 justify-center">
+                        <a href="https://www.pitt.edu" target="_blank" rel="noopener noreferrer" class="bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow duration-300 w-20 h-20 flex-shrink-0">
+                            <img src="assets/images/partners/18.png" alt="University of Pittsburgh - Lead institution for the RAMMP initiative" class="w-4/5 h-4/5 object-contain">
+                        </a>
+                        <a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow duration-300 w-20 h-20 flex-shrink-0">
+                            <img src="assets/images/partners/13.png" alt="Human Engineering Research Laboratories (HERL) logo" class="w-4/5 h-4/5 object-contain">
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-raleway text-base text-dark-gray dark:text-gray-300 mb-2"><strong>University of Pittsburgh</strong></p>
+                        <p class="font-raleway text-base text-dark-gray dark:text-gray-300 mb-2"><strong><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">Human Engineering Research Laboratories (HERL)</a></strong></p>
+                        <p class="font-raleway text-base text-dark-gray dark:text-gray-300"><strong>Principal Investigator:</strong> <a href="https://en.wikipedia.org/wiki/Rory_Cooper" target="_blank" rel="noopener noreferrer" class="text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">Rory Cooper, Ph.D.</a></p>
+                    </div>
+                </div>
+                <!-- Desktop layout: logo - text - logo -->
+                <div class="hidden md:flex items-center justify-center gap-8 mb-6">
+                    <a href="https://www.pitt.edu" target="_blank" rel="noopener noreferrer" class="bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow duration-300 flex-shrink-0 overflow-hidden" style="width: 160px; height: 160px;">
+                        <img src="assets/images/partners/18.png" alt="University of Pittsburgh - Lead institution for the RAMMP initiative" class="max-w-[128px] max-h-[128px] object-contain">
+                    </a>
+                    <div class="text-center">
+                        <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-2"><strong>University of Pittsburgh</strong></p>
+                        <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-2"><strong><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">Human Engineering Research Laboratories (HERL)</a></strong></p>
+                        <p class="font-raleway text-lg text-dark-gray dark:text-gray-300"><strong>Principal Investigator:</strong> <a href="https://en.wikipedia.org/wiki/Rory_Cooper" target="_blank" rel="noopener noreferrer" class="text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">Rory Cooper, Ph.D.</a></p>
+                    </div>
+                    <a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow duration-300 flex-shrink-0 overflow-hidden" style="width: 160px; height: 160px;">
+                        <img src="assets/images/partners/13.png" alt="Human Engineering Research Laboratories (HERL) logo" class="max-w-[128px] max-h-[128px] object-contain">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Consortium Partners -->
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-xl">
+                <h3 class="font-montserrat font-bold text-2xl text-near-black dark:text-white mb-6">Consortium Partners</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- ATDev -->
+                    <a href="https://atdev.tech" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/atdev-logo-bg.jpg" alt="ATDev - Assistive Technology Development" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">ATDev</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Creating innovative assistive technology that empowers people to live independently, confidently, and without barriers.</p>
+                    </a>
+                    
+                    <!-- CMU -->
+                    <a href="https://www.ri.cmu.edu/robotics-groups/robotic-caregiving-and-human-interaction-lab/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/11.png" alt="Carnegie Mellon University" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Carnegie Mellon University</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Robotic Caregiving and Human Interaction Lab - Advancing robotic systems for human-centered caregiving applications.</p>
+                    </a>
+                    
+                    <!-- Cornell -->
+                    <a href="https://emprise.cs.cornell.edu/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/12.png" alt="Cornell University" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Cornell University</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Emprise Lab - Developing embodied AI and robotic systems for assistive and collaborative applications.</p>
+                    </a>
+                    
+                    <!-- Northeastern -->
+                    <a href="https://robot.neu.edu/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/images.png" alt="Northeastern University" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Northeastern University</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">The Robotics and Intelligent Vehicles Research Laboratory (RIVeR) is a research lab that focuses on experiential robotics.</p>
+                    </a>
+                    
+                    <!-- Purdue -->
+                    <a href="https://engineering.purdue.edu/DuerstockIAS" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/16.png" alt="Purdue University" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Purdue University</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Intelligent Assistive Systems Lab - Developing assistive technologies and intelligent systems for enhanced mobility and independence.</p>
+                    </a>
+                    
+                    <!-- Kinova -->
+                    <a href="https://www.kinovarobotics.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/14.png" alt="Kinova Robotics" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Kinova Robotics</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Leading provider of lightweight robotic arms designed for assistive and collaborative applications.</p>
+                    </a>
+                    
+                    <!-- LUCI Mobility -->
+                    <a href="https://luci.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/15.png" alt="LUCI Mobility" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">LUCI Mobility</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Innovating next-generation mobility solutions for enhanced independence and quality of life.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Commercial Partners -->
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-xl mt-8">
+                <h3 class="font-montserrat font-bold text-2xl text-near-black dark:text-white mb-6">Commercial Partners</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- NVIDIA -->
+                    <a href="https://www.nvidia.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/Nvidia_logo.svg.png" alt="NVIDIA" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">NVIDIA</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Leading provider of GPU computing and AI technology powering next-generation robotics and assistive technology applications.</p>
+                    </a>
+                    
+                    <!-- Amazon Web Services -->
+                    <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
+                        <div class="flex justify-center items-center mb-4 h-32">
+                            <img src="assets/images/partners/Amazon_Web_Services_Logo.svg.png" alt="Amazon Web Services" class="h-32 w-auto object-contain">
+                        </div>
+                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Amazon Web Services</h4>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Cloud computing platform providing scalable infrastructure for healthcare innovation and assistive technology development.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Funding</h2>
+            <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 max-w-3xl mb-6">
+                This project is funded, in part, by the Advanced Research Projects Agency for Health (ARPA-H), a division of the U.S. Department of Health and Human Services.
+            </p>
+            <a href="https://www.prnewswire.com/news-releases/atdev-joins-41-million-arpa-h-initiative-to-build-the-future-of-robotic-mobility-and-independence-302606603.html" target="_blank" rel="noopener noreferrer" class="inline-block font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">
+                Read the press release →
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <a href="index.html" class="inline-block">
+                            <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                        </a>
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Building the next generation of robotic assistive mobility and manipulation technologies to empower independence.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html" class="text-gray-300 hover:text-bright-blue transition-colors">Home</a></li>
+                        <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
+                        <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
+                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
+                        <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400">© <span id="current-year">2024</span> RAMMP Consortium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const html = document.documentElement;
         
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
         
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
         
-        const waves = [];
-        const waveCount = 5;
-        
-        for (let i = 0; i < waveCount; i++) {
-            waves.push({
-                y: height * (0.3 + i * 0.15),
-                length: 0.01 + i * 0.002,
-                amplitude: 30 + i * 20,
-                frequency: 0.01 + i * 0.005,
-                phase: Math.random() * Math.PI * 2
-            });
-        }
-        
-        let frame = 0;
-        
-        function animate() {
-            // Create gradient background
-            const gradient = ctx.createLinearGradient(0, 0, 0, height);
-            gradient.addColorStop(0, '#0a0a0a');
-            gradient.addColorStop(0.5, '#1a1a1a');
-            gradient.addColorStop(1, '#0f0f0f');
-            
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, width, height);
-            
-            frame += 0.5;
-            
-            waves.forEach((wave, index) => {
-                ctx.beginPath();
-                ctx.moveTo(0, height);
-                
-                for (let x = 0; x < width; x++) {
-                    const y = wave.y + 
-                              Math.sin(x * wave.length + frame * wave.frequency + wave.phase) * wave.amplitude;
-                    
-                    if (x === 0) {
-                        ctx.lineTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
-                }
-                
-                ctx.lineTo(width, height);
-                ctx.closePath();
-                
-                const alpha = 0.03 + index * 0.01;
-                const grayValue = 40 + index * 15;
-                ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
-                ctx.fill();
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

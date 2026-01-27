@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the RAMMP team - researchers, engineers, and innovators working to create next-generation assistive robotics.">
+    <title>People - RAMMP</title>
+    <link rel="icon" type="image/png" href="assets/images/RAMMP Logo favicon.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.25);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="people.html" class="font-raleway font-medium text-bright-blue">People</a>
+                    <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications</a>
+                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-bright-blue">People</a>
+                <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications</a>
+                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section class="pt-24 pb-12 bg-gradient-to-br from-deep-blue to-bright-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">Our People</h1>
+            <p class="font-raleway font-light text-xl text-white/90 max-w-3xl mx-auto">
+                Meet the researchers, engineers, and innovators driving the future of assistive robotics.
+            </p>
+        </div>
+    </section>
+
+    <!-- Principal Investigator Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-12 text-center">Principal Investigator</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-8">
+                            <div class="w-48 h-48 rounded-full bg-bright-blue/20 flex items-center justify-center">
+                                <span class="font-montserrat font-bold text-4xl text-bright-blue">RC</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <h3 class="font-montserrat font-bold text-2xl text-near-black dark:text-white mb-2">Rory Cooper, Ph.D.</h3>
+                            <p class="font-raleway font-medium text-bright-blue mb-4">Principal Investigator</p>
+                            <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">
+                                Distinguished Professor at the University of Pittsburgh and Director of the Human Engineering Research Laboratories (HERL). Dr. Cooper is a world-renowned expert in rehabilitation engineering and wheelchair technology.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway">Rehabilitation Engineering</span>
+                                <span class="px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway">Assistive Technology</span>
+                                <span class="px-3 py-1 bg-bright-blue/10 dark:bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway">Wheelchair Design</span>
+                            </div>
+                            <a href="https://en.wikipedia.org/wiki/Rory_Cooper" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 underline">
+                                Learn more →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section class="py-20 bg-off-white dark:bg-near-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-4 text-center">Team Members</h2>
+            <p class="font-raleway font-light text-xl text-dark-gray dark:text-gray-300 max-w-3xl mx-auto text-center mb-12">
+                Researchers, engineers, and innovators across our consortium working to advance assistive robotics.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Person 1 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">JS</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Jane Smith, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Co-Principal Investigator</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">University of Pittsburgh</p>
+                </div>
+
+                <!-- Person 2 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">MJ</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Michael Johnson, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Lead Robotics Engineer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Carnegie Mellon University</p>
+                </div>
+
+                <!-- Person 3 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">EW</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Emily Williams, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">AI Research Lead</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Cornell University</p>
+                </div>
+
+                <!-- Person 4 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">DB</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. David Brown, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Rehabilitation Engineer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Northeastern University</p>
+                </div>
+
+                <!-- Person 5 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">SL</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Sarah Lee, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Human-Robot Interaction</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Purdue University</p>
+                </div>
+
+                <!-- Person 6 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">RC</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Robert Chen, MS</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Senior Software Engineer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">ATDev</p>
+                </div>
+
+                <!-- Person 7 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">AM</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Amanda Martinez, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Clinical Research Director</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">University of Pittsburgh</p>
+                </div>
+
+                <!-- Person 8 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">TN</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Thomas Nguyen, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Mechatronics Lead</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Carnegie Mellon University</p>
+                </div>
+
+                <!-- Person 9 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">LT</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Lisa Thompson, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Perception Systems</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Cornell University</p>
+                </div>
+
+                <!-- Person 10 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">KP</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Kevin Patel, MS</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Embedded Systems Engineer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Northeastern University</p>
+                </div>
+
+                <!-- Person 11 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">JK</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Jennifer Kim, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Biomechanics Researcher</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Purdue University</p>
+                </div>
+
+                <!-- Person 12 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">AW</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Alex Wilson, MS</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Robotics Software Developer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">ATDev</p>
+                </div>
+
+                <!-- Person 13 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">MR</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Maria Rodriguez, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Control Systems</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">University of Pittsburgh</p>
+                </div>
+
+                <!-- Person 14 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">JA</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">James Anderson, MS</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Machine Learning Engineer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Carnegie Mellon University</p>
+                </div>
+
+                <!-- Person 15 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">RG</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Rachel Garcia, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">User Experience Research</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Cornell University</p>
+                </div>
+
+                <!-- Person 16 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">CT</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Christopher Taylor, MS</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Hardware Engineer</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Northeastern University</p>
+                </div>
+
+                <!-- Person 17 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">NM</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Nicole Miller, PhD</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Occupational Therapy</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Purdue University</p>
+                </div>
+
+                <!-- Person 18 -->
+                <div class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-bright-blue/20 transition-all duration-300 p-8 text-center border border-gray-100 dark:border-gray-700">
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-bright-blue/20 flex items-center justify-center mx-auto shadow-lg">
+                            <span class="font-montserrat font-bold text-2xl text-bright-blue">DH</span>
+                        </div>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Daniel Harris, MS</h4>
+                    <p class="font-raleway font-medium text-bright-blue mb-2">Sensor Integration</p>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">ATDev</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Teams Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-12 text-center">Partner Institutions</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- HERL Team -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/partners/13.png" alt="HERL" class="h-12 w-auto mr-4">
+                        <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white">HERL</h3>
+                    </div>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">Human Engineering Research Laboratories at University of Pittsburgh - leading the consortium in mobility and manipulation research.</p>
+                    <a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 text-sm">
+                        Visit website →
+                    </a>
+                </div>
+
+                <!-- CMU Team -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/partners/11.png" alt="CMU" class="h-12 w-auto mr-4">
+                        <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white">Carnegie Mellon</h3>
+                    </div>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">Robotic Caregiving and Human Interaction Lab - advancing robotic systems for human-centered caregiving applications.</p>
+                    <a href="https://www.ri.cmu.edu/robotics-groups/robotic-caregiving-and-human-interaction-lab/" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 text-sm">
+                        Visit website →
+                    </a>
+                </div>
+
+                <!-- Cornell Team -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/partners/12.png" alt="Cornell" class="h-12 w-auto mr-4">
+                        <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white">Cornell University</h3>
+                    </div>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">Emprise Lab - developing embodied AI and robotic systems for assistive and collaborative applications.</p>
+                    <a href="https://emprise.cs.cornell.edu/" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 text-sm">
+                        Visit website →
+                    </a>
+                </div>
+
+                <!-- Northeastern Team -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/partners/images.png" alt="Northeastern" class="h-12 w-auto mr-4">
+                        <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white">Northeastern</h3>
+                    </div>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">Robotics and Intelligent Vehicles Research Laboratory (RIVeR) - focusing on experiential robotics research.</p>
+                    <a href="https://robot.neu.edu/" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 text-sm">
+                        Visit website →
+                    </a>
+                </div>
+
+                <!-- Purdue Team -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/partners/16.png" alt="Purdue" class="h-12 w-auto mr-4">
+                        <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white">Purdue University</h3>
+                    </div>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">Intelligent Assistive Systems Lab - developing assistive technologies and intelligent systems for enhanced mobility.</p>
+                    <a href="https://engineering.purdue.edu/DuerstockIAS" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 text-sm">
+                        Visit website →
+                    </a>
+                </div>
+
+                <!-- ATDev Team -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/atdev-logo-bg.jpg" alt="ATDev" class="h-12 w-auto mr-4">
+                        <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white">ATDev</h3>
+                    </div>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">Creating innovative assistive technology that empowers people to live independently, confidently, and without barriers.</p>
+                    <a href="https://atdev.tech" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors duration-300 text-sm">
+                        Visit website →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Join Our Team</h2>
+            <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 max-w-2xl mx-auto mb-8">
+                We're always looking for talented researchers, engineers, and innovators who are passionate about improving lives through assistive technology.
+            </p>
+            <a href="contact.html" class="inline-block font-montserrat font-semibold bg-bright-blue text-white px-8 py-3 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <a href="index.html" class="inline-block">
+                            <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                        </a>
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Building the next generation of robotic assistive mobility and manipulation technologies to empower independence.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html" class="text-gray-300 hover:text-bright-blue transition-colors">Home</a></li>
+                        <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
+                        <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
+                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
+                        <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400">© <span id="current-year">2024</span> RAMMP Consortium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the RAMMP team - Get in touch with us about the Robotic Assistive Mobility and Manipulation Platform initiative.">
+    <title>Contact - RAMMP</title>
+    <link rel="icon" type="image/png" href="assets/images/RAMMP Logo favicon.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #22a9ff 0%, #115C90 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
+                    <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications</a>
+                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg class="w-6 h-6 text-dark-gray dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
+                <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications</a>
+                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <main id="main-content">
+    <section class="pt-24 pb-12 brand-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">Get In Touch</h1>
+            <p class="font-raleway font-light text-xl text-white/90 max-w-3xl mx-auto">
+                Have questions about RAMMP? Want to collaborate or learn more about our research?
+            </p>
+            <p class="font-raleway font-light text-xl text-white/90 max-w-3xl mx-auto mt-4">
+                We'd love to hear from you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 brand-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <h2 class="font-montserrat font-bold text-2xl text-near-black dark:text-white mb-6">Send us a Message</h2>
+                    <form class="space-y-6" name="rammp-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="rammp-contact" />
+                        <p class="hidden">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        <div>
+                            <label for="contact-name" class="block font-raleway font-semibold text-near-black dark:text-white mb-2">Name</label>
+                            <input type="text" id="contact-name" name="name" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-near-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bright-blue focus:border-bright-blue font-raleway" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block font-raleway font-semibold text-near-black dark:text-white mb-2">Email</label>
+                            <input type="email" id="contact-email" name="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-near-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bright-blue focus:border-bright-blue font-raleway" placeholder="your@email.com" required>
+                        </div>
+                        <div>
+                            <label for="contact-organization" class="block font-raleway font-semibold text-near-black dark:text-white mb-2">Organization (Optional)</label>
+                            <input type="text" id="contact-organization" name="organization" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-near-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bright-blue focus:border-bright-blue font-raleway" placeholder="Your Organization">
+                        </div>
+                        <div>
+                            <label for="contact-subject" class="block font-raleway font-semibold text-near-black dark:text-white mb-2">Subject</label>
+                            <select id="contact-subject" name="subject" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-near-black dark:text-white focus:outline-none focus:ring-2 focus:ring-bright-blue focus:border-bright-blue font-raleway">
+                                <option value="general">General Inquiry</option>
+                                <option value="research">Research Collaboration</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="media">Media/Press Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block font-raleway font-semibold text-near-black dark:text-white mb-2">Message</label>
+                            <textarea id="contact-message" rows="4" name="message" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-near-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bright-blue focus:border-bright-blue font-raleway" placeholder="Tell us about your interest in RAMMP..." required></textarea>
+                        </div>
+                                                <button type="submit" class="w-full font-montserrat font-semibold bg-bright-blue text-white px-6 py-3 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <img src="assets/images/rammp-kickoff.jpg" alt="RAMMP Kickoff Meeting" class="w-full h-64 object-cover rounded-lg mb-6">
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Lead Institution</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-bright-blue mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-raleway font-semibold text-near-black dark:text-white">University of Pittsburgh</p>
+                                    <p class="font-raleway text-dark-gray dark:text-gray-300">Human Engineering Research Laboratories (HERL)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-bright-blue mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-raleway text-near-black dark:text-white">Pittsburgh, Pennsylvania</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-bright-blue mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                                </svg>
+                                <a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors">www.herl.pitt.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Funding Agency</h3>
+                        <div class="flex items-center mb-4">
+                            <img src="assets/images/partners/logo.svg" alt="ARPA-H Logo" class="h-12 w-auto mr-4">
+                        </div>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 mb-4">
+                            Advanced Research Projects Agency for Health (ARPA-H), U.S. Department of Health and Human Services
+                        </p>
+                        <a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="font-raleway text-bright-blue hover:text-deep-blue transition-colors">
+                            Visit ARPA-H →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <a href="index.html" class="inline-block">
+                            <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                        </a>
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Building the next generation of robotic assistive mobility and manipulation technologies to empower independence.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html" class="text-gray-300 hover:text-bright-blue transition-colors">Home</a></li>
+                        <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
+                        <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
+                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
+                        <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400">© <span id="current-year">2024</span> RAMMP Consortium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
