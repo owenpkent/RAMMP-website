@@ -23,6 +23,16 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Accessibility: Enhanced focus styles */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #22a9ff;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
@@ -30,7 +40,7 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="index.html" class="flex items-center">
@@ -43,8 +53,7 @@
                     <a href="what-is-rammp.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">What is RAMMP?</a>
                     <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
                     <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications</a>
-                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
-                    
+                                        
                     <!-- Dark Mode Toggle -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
                         <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
@@ -84,8 +93,7 @@
                 <a href="what-is-rammp.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">What is RAMMP?</a>
                 <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
                 <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications</a>
-                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
-                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+                                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
             </div>
         </div>
     </nav>
@@ -204,7 +212,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+    <footer role="contentinfo" class="bg-near-black dark:bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
@@ -224,8 +232,7 @@
                         <li><a href="what-is-rammp.html" class="text-gray-300 hover:text-bright-blue transition-colors">What is RAMMP?</a></li>
                         <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
                         <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
-                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
-                    </ul>
+                                            </ul>
                 </div>
                 <div>
                     <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
@@ -233,7 +240,7 @@
                         <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
                         <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
                         <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
-                        <li><a href="https://ktdev.io" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">KTDev</a></li>
+                        <li><a href="https://atdevio.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ATDev</a></li>
                     </ul>
                 </div>
             </div>

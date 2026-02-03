@@ -38,6 +38,40 @@
         .dark .card-hover:hover {
             box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.4);
         }
+        
+        /* Accessibility: Enhanced focus styles */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #22a9ff;
+            outline-offset: 2px;
+        }
+        
+        /* Screen reader only utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .sr-only.focus\:not-sr-only:focus {
+            position: absolute;
+            width: auto;
+            height: auto;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
     </style>
 </head>
 <body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
@@ -45,7 +79,7 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="index.html" class="flex items-center">
@@ -58,14 +92,13 @@
                     <a href="what-is-rammp.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">What is RAMMP?</a>
                     <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
                     <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications</a>
-                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
-                    
+                                        
                     <!-- Dark Mode Toggle -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
-                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
                         </svg>
-                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
                     </button>
@@ -76,15 +109,15 @@
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center space-x-2">
                     <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
-                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
-                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
                     <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
@@ -99,8 +132,7 @@
                 <a href="what-is-rammp.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">What is RAMMP?</a>
                 <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
                 <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications</a>
-                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
-                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+                                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
             </div>
         </div>
     </nav>
@@ -249,23 +281,6 @@
                         <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Intelligent Assistive Systems Lab - Developing assistive technologies and intelligent systems for enhanced mobility and independence.</p>
                     </a>
                     
-                    <!-- Kinova -->
-                    <a href="https://www.kinovarobotics.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
-                        <div class="flex justify-center items-center mb-4 h-32">
-                            <img src="assets/images/partners/14.png" alt="Kinova Robotics" class="h-32 w-auto object-contain">
-                        </div>
-                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Kinova Robotics</h4>
-                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Leading provider of lightweight robotic arms designed for assistive and collaborative applications.</p>
-                    </a>
-                    
-                    <!-- LUCI Mobility -->
-                    <a href="https://luci.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-600 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-500 flex flex-col">
-                        <div class="flex justify-center items-center mb-4 h-32">
-                            <img src="assets/images/partners/15.png" alt="LUCI Mobility" class="h-32 w-auto object-contain">
-                        </div>
-                        <h4 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">LUCI Mobility</h4>
-                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-200 flex-grow">Innovating next-generation mobility solutions for enhanced independence and quality of life.</p>
-                    </a>
                 </div>
             </div>
 
@@ -311,7 +326,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+    <footer role="contentinfo" class="bg-near-black dark:bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
@@ -331,8 +346,7 @@
                         <li><a href="what-is-rammp.html" class="text-gray-300 hover:text-bright-blue transition-colors">What is RAMMP?</a></li>
                         <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
                         <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
-                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
-                    </ul>
+                                            </ul>
                 </div>
                 <div>
                     <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
@@ -340,7 +354,7 @@
                         <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
                         <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
                         <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
-                        <li><a href="https://ktdev.io" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">KTDev</a></li>
+                        <li><a href="https://atdevio.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ATDev</a></li>
                     </ul>
                 </div>
             </div>
