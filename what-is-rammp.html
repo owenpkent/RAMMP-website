@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What is RAMMP? Learn how the Robotic Assistive Mobility and Manipulation Platform is transforming independence for people with disabilities and addressing the caregiving crisis.">
+    <title>What is RAMMP? - Robotic Assistive Mobility and Manipulation Platform</title>
+    <link rel="icon" type="image/png" href="assets/images/RAMMP Logo favicon.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(3, 9, 13, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .brand-gradient {
+            background: linear-gradient(135deg, #22a9ff 0%, #115C90 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.25);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(34, 169, 255, 0.4);
+        }
+
+        .stat-number {
+            background: linear-gradient(135deg, #22a9ff 0%, #115C90 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="what-is-rammp.html" class="font-raleway font-medium text-bright-blue">What is RAMMP?</a>
+                    <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
+                    <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications</a>
+                    <a href="progress.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Progress</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="what-is-rammp.html" class="block px-3 py-2 font-raleway font-medium text-bright-blue">What is RAMMP?</a>
+                <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
+                <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications</a>
+                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Progress</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-near-black">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="font-montserrat font-bold text-4xl lg:text-5xl text-near-black dark:text-white mb-6">
+                        What is <span class="text-bright-blue">RAMMP</span>?
+                    </h1>
+                    <p class="font-raleway text-xl lg:text-2xl text-dark-gray dark:text-gray-300 leading-relaxed">
+                        A bold vision to transform independence for millions of people with disabilities and those who care for them.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">The Challenge We Face</h2>
+                    <p class="font-raleway text-lg text-dark-gray dark:text-gray-300">
+                        Today, millions of people are being held back by technology that hasn't kept pace with their potential.
+                    </p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl text-center">
+                        <div class="stat-number font-montserrat font-bold text-5xl mb-2">100,000+</div>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">Wheelchair-related injuries treated in U.S. emergency rooms every year</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl text-center">
+                        <div class="stat-number font-montserrat font-bold text-5xl mb-2">53M</div>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">Family caregivers in America providing unpaid support</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl text-center">
+                        <div class="stat-number font-montserrat font-bold text-5xl mb-2">1B+</div>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">People worldwide will be over 60 by 2030—the need is global and growing</p>
+                    </div>
+                </div>
+
+                <!-- Problem Cards -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-3">Outdated Technology</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            Current powered wheelchairs and mobility devices are based on technology that hasn't fundamentally changed in decades. They force people to rely heavily on others, often restricting their world to just a portion of their own home.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+                        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-3">Lives on Hold</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            Many people with disabilities must schedule their entire day around when a caregiver is available. Simple things most of us take for granted—grabbing a snack, going to the store, or enjoying a meal—require planning and assistance.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+                        <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-3">The Caregiver Crisis</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            Caregiver availability is limited, often unreliable, and shrinking. Family members sacrifice careers and personal time. Professional caregivers are in short supply. As our population ages, this crisis will only deepen.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-3">Barriers Everywhere</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            Curbs, uneven sidewalks, steep ramps, narrow doorways—the physical world is full of obstacles. Current devices can't safely navigate these challenges, leading to tips, falls, and injuries that restrict where people can go.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Vision Section -->
+        <section class="py-20 bg-gradient-to-br from-bright-blue to-deep-blue text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl mb-6">Our Vision: A World of Independence</h2>
+                    <p class="font-raleway text-xl text-blue-100 leading-relaxed">
+                        Imagine a world where having a disability doesn't mean giving up your freedom. Where you can go where you want, when you want. Where you can grab a snack from the fridge, go shopping with friends, or head to work—on your own terms.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+                    <p class="font-raleway text-lg text-blue-50 leading-relaxed mb-6">
+                        <strong class="text-white">RAMMP</strong>—the <strong class="text-white">Robotic Assistive Mobility and Manipulation Platform</strong>—is being built to make this vision real.
+                    </p>
+                    <p class="font-raleway text-lg text-blue-50 leading-relaxed">
+                        This isn't just an incremental improvement. It's a complete reimagining of what assistive technology can do. By combining advanced robotics, artificial intelligence, and smart mobility into one powerful platform, RAMMP will give people the ability to navigate their world and interact with it in ways that were never before possible.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What RAMMP Does Section -->
+        <section class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">What RAMMP Will Do</h2>
+                    <p class="font-raleway text-lg text-dark-gray dark:text-gray-300">
+                        RAMMP combines breakthrough technologies to address the full spectrum of daily living challenges.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Mobility Card -->
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl card-hover">
+                        <div class="w-16 h-16 bg-bright-blue/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Smart Mobility</h3>
+                        <ul class="font-raleway text-dark-gray dark:text-gray-300 space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Navigate curbs, ramps, and uneven terrain safely</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Self-leveling to prevent tips and falls</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>360° awareness of surroundings</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Indoor and outdoor navigation assistance</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Manipulation Card -->
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl card-hover">
+                        <div class="w-16 h-16 bg-bright-blue/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Robotic Manipulation</h3>
+                        <ul class="font-raleway text-dark-gray dark:text-gray-300 space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Open doors, refrigerators, and cabinets</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Grab items from shelves and counters</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Assist with eating and drinking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Coordinated arm and chair movement</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Intelligence Card -->
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl card-hover">
+                        <div class="w-16 h-16 bg-bright-blue/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Smart Assistance</h3>
+                        <ul class="font-raleway text-dark-gray dark:text-gray-300 space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>You stay in control—AI assists, you decide</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Voice, touch, or joystick control options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Learns your preferences over time</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-bright-blue mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Pause or override at any time</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Life Section -->
+        <section class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Transforming Daily Life</h2>
+                    <p class="font-raleway text-lg text-dark-gray dark:text-gray-300">
+                        RAMMP is designed around real activities that matter to real people.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🍽️</div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Meals</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Get food from the fridge, heat it up, eat when you're hungry—not when someone is available to help.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🛒</div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Shopping</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Navigate stores, reach products on shelves, and shop independently or with friends.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">💼</div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Work</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Access offices, labs, and workspaces with confidence. Participate fully in your career.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🚗</div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Transportation</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Get in and out of vehicles safely, dock securely, and travel with greater independence.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🏠</div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Home</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Move freely through every room. Navigate doorways, bathrooms, and tight spaces with ease.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🌳</div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Community</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Go to parks, restaurants, events. Handle curbs and uneven sidewalks without fear.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Benefits Section -->
+        <section class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Who RAMMP is For</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl text-center">
+                        <div class="w-20 h-20 bg-bright-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">People with Disabilities</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            Whether from injury, illness, or a condition you've lived with your whole life—RAMMP is being designed with you, for you. Your voice shapes what we build.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl text-center">
+                        <div class="w-20 h-20 bg-bright-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Caregivers & Families</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            You give so much. RAMMP can help reduce physical strain, give you peace of mind, and let your loved one do more independently—while you're still there when it matters most.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl text-center">
+                        <div class="w-20 h-20 bg-bright-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-4">Aging Adults</h3>
+                        <p class="font-raleway text-dark-gray dark:text-gray-300">
+                            As mobility changes with age, RAMMP can help you stay in your home, maintain your independence, and continue living life on your terms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Source Section -->
+        <section class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Built to Be Shared</h2>
+                        <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-6">
+                            RAMMP isn't just a product—it's a platform. We're building this technology as <strong>open source</strong>, meaning researchers, educators, entrepreneurs, and innovators around the world can use it, improve it, and create new solutions.
+                        </p>
+                        <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 mb-6">
+                            This approach democratizes access to cutting-edge assistive technology. A student in a university lab, a startup in a garage, or a researcher on another continent can all build on RAMMP's foundation.
+                        </p>
+                        <p class="font-raleway text-lg text-dark-gray dark:text-gray-300">
+                            By working together, we can accelerate innovation and get better technology into the hands of people who need it—faster.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+                        <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-6">The RAMMP Ecosystem</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-bright-blue/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-bright-blue font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-montserrat font-semibold text-near-black dark:text-white">ATOS - Open Source Operating System</h4>
+                                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">The software brain that powers RAMMP, available for anyone to use and build upon.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-bright-blue/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-bright-blue font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-montserrat font-semibold text-near-black dark:text-white">RAMMS - Digital Twin Simulation</h4>
+                                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">A virtual environment for safe testing and development before real-world deployment.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-bright-blue/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-bright-blue font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-montserrat font-semibold text-near-black dark:text-white">Research & Education Platform</h4>
+                                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">A tool for universities and researchers to advance the field of assistive robotics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-br from-bright-blue to-deep-blue text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-montserrat font-bold text-3xl lg:text-4xl mb-6">This is a Moment of Change</h2>
+                <p class="font-raleway text-xl text-blue-100 mb-8 leading-relaxed">
+                    For too long, people with disabilities have been told to adapt to a world that wasn't built for them. RAMMP is building technology that adapts to <em>you</em>—technology that empowers independence, dignity, and freedom.
+                </p>
+                <p class="font-raleway text-lg text-blue-100 mb-10">
+                    This is more than engineering. It's a chance to transform millions of lives.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="inline-block font-montserrat font-semibold bg-white text-bright-blue px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 uppercase tracking-wide">
+                        Get Involved
+                    </a>
+                    <a href="people.html" class="inline-block font-montserrat font-semibold border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white/10 transition-colors duration-300 uppercase tracking-wide">
+                        Meet the Team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <a href="index.html" class="inline-block">
+                            <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                        </a>
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Building the next generation of robotic assistive mobility and manipulation technologies to empower independence.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html" class="text-gray-300 hover:text-bright-blue transition-colors">Home</a></li>
+                        <li><a href="what-is-rammp.html" class="text-gray-300 hover:text-bright-blue transition-colors">What is RAMMP?</a></li>
+                        <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
+                        <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications</a></li>
+                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
+                        <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400">© <span id="current-year">2024</span> RAMMP Consortium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
