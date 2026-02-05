@@ -15,6 +15,12 @@ except ImportError:
     os.system("pip install Pillow")
     from PIL import Image
 
+try:
+    import pillow_heif
+    pillow_heif.register_heif_opener()
+except ImportError:
+    pass  # HEIC support optional
+
 HEADSHOTS_DIR = Path(__file__).parent.parent / "assets" / "images" / "headshots"
 MAX_SIZE = (400, 400)  # Max dimensions for headshots
 JPEG_QUALITY = 85  # Good balance of quality and file size
@@ -62,7 +68,7 @@ def main():
         return
     
     # Get all image files
-    image_extensions = {'.jpg', '.jpeg', '.png', '.webp'}
+    image_extensions = {'.jpg', '.jpeg', '.png', '.webp', '.heic', '.heif'}
     images = [f for f in HEADSHOTS_DIR.iterdir() 
               if f.suffix.lower() in image_extensions]
     
