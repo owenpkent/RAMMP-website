@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RAMMP Progress - Track the development milestones and updates of the RAMMP initiative.">
+    <title>Progress - RAMMP</title>
+    <link rel="icon" type="image/png" href="assets/images/RAMMP Logo favicon.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #22a9ff, #115C90);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(34, 169, 255, 0.2);
+        }
+        
+        /* Accessibility: Enhanced focus styles */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #22a9ff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-bright-blue text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="what-is-rammp.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">What is RAMMP?</a>
+                    <a href="people.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">People</a>
+                    <a href="publications.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Publications and Press</a>
+                    <a href="progress.html" class="font-raleway font-medium text-bright-blue">Progress</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="what-is-rammp.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">What is RAMMP?</a>
+                <a href="people.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">People</a>
+                <a href="publications.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Publications and Press</a>
+                <a href="progress.html" class="block px-3 py-2 font-raleway font-medium text-bright-blue">Progress</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section class="pt-24 pb-12 bg-gradient-to-br from-deep-blue to-bright-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">Project Progress</h1>
+            <p class="font-raleway font-light text-xl text-white/90 max-w-3xl mx-auto">
+                Track our milestones and development updates as we build the future of assistive robotics.
+            </p>
+        </div>
+    </section>
+
+    <!-- Project Status Overview -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Funding Status -->
+                <div class="bg-gradient-to-br from-bright-blue to-deep-blue rounded-xl p-6 text-white text-center">
+                    <div class="text-4xl font-montserrat font-bold mb-2">$41M</div>
+                    <div class="font-raleway text-white/90">ARPA-H Funding</div>
+                </div>
+                
+                <!-- Consortium Size -->
+                <div class="bg-gradient-to-br from-bright-blue to-deep-blue rounded-xl p-6 text-white text-center">
+                    <div class="text-4xl font-montserrat font-bold mb-2">7+</div>
+                    <div class="font-raleway text-white/90">Consortium Partners</div>
+                </div>
+                
+                <!-- Project Phase -->
+                <div class="bg-gradient-to-br from-bright-blue to-deep-blue rounded-xl p-6 text-white text-center">
+                    <div class="text-4xl font-montserrat font-bold mb-2">Phase 1</div>
+                    <div class="font-raleway text-white/90">Research & Development</div>
+                </div>
+            </div>
+
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-12 text-center">Development Timeline</h2>
+            
+            <!-- Timeline -->
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+                
+                <div class="space-y-12">
+                    <!-- Milestone 1: Project Launch -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                                <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-raleway mb-3">Completed</span>
+                                <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Project Launch</h3>
+                                <p class="font-raleway text-dark-gray dark:text-gray-300 mb-2">ARPA-H announces $41M funding for the RAMMP initiative. University of Pittsburgh selected to lead the consortium.</p>
+                                <span class="font-raleway text-sm text-bright-blue">Q1 2025</span>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-bright-blue rounded-full border-4 border-white dark:border-gray-900 z-10 hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- Milestone 2: Consortium Formation -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-bright-blue rounded-full border-4 border-white dark:border-gray-900 z-10 hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-12 mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                                <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-raleway mb-3">Completed</span>
+                                <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Consortium Formation</h3>
+                                <p class="font-raleway text-dark-gray dark:text-gray-300 mb-2">All consortium partners formally join the initiative. Kickoff meetings held to align research objectives.</p>
+                                <span class="font-raleway text-sm text-bright-blue">Q1 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3: Research Phase -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700">
+                                <span class="inline-block px-3 py-1 bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway mb-3">In Progress</span>
+                                <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Research & Development</h3>
+                                <p class="font-raleway text-dark-gray dark:text-gray-300 mb-2">Active development of robotic mobility and manipulation technologies. Integration of AI systems and sensor fusion.</p>
+                                <span class="font-raleway text-sm text-bright-blue">2025-2026</span>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-bright-blue rounded-full border-4 border-white dark:border-gray-900 z-10 hidden md:block animate-pulse"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- Milestone 4: Prototype Development -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gray-300 dark:bg-gray-600 rounded-full border-4 border-white dark:border-gray-900 z-10 hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-12 mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 opacity-75">
+                                <span class="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm font-raleway mb-3">Upcoming</span>
+                                <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Prototype Development</h3>
+                                <p class="font-raleway text-dark-gray dark:text-gray-300 mb-2">First generation prototypes for user testing. Hardware integration and software platform development.</p>
+                                <span class="font-raleway text-sm text-dark-gray dark:text-gray-400">2026-2027</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 5: Clinical Trials -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover border border-gray-100 dark:border-gray-700 opacity-75">
+                                <span class="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm font-raleway mb-3">Upcoming</span>
+                                <h3 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">User Testing & Validation</h3>
+                                <p class="font-raleway text-dark-gray dark:text-gray-300 mb-2">Extensive user testing with people with mobility challenges. Iterative refinement based on real-world feedback.</p>
+                                <span class="font-raleway text-sm text-dark-gray dark:text-gray-400">2027-2028</span>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gray-300 dark:bg-gray-600 rounded-full border-4 border-white dark:border-gray-900 z-10 hidden md:block"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Updates Section -->
+    <section class="py-20 bg-off-white dark:bg-near-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-12 text-center">Recent Updates</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Update 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-raleway">Milestone</span>
+                        <span class="ml-auto font-raleway text-sm text-dark-gray dark:text-gray-400">Jan 2026</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Research Framework Established</h3>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Core research protocols and frameworks have been finalized across all partner institutions.</p>
+                </div>
+
+                <!-- Update 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway">Development</span>
+                        <span class="ml-auto font-raleway text-sm text-dark-gray dark:text-gray-400">Dec 2025</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Initial Sensor Integration</h3>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">First round of sensor integration tests completed with promising results for environmental awareness.</p>
+                </div>
+
+                <!-- Update 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-raleway">Collaboration</span>
+                        <span class="ml-auto font-raleway text-sm text-dark-gray dark:text-gray-400">Nov 2025</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Kickoff Meeting Success</h3>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">All consortium partners gathered for the official RAMMP kickoff, establishing project roadmap and goals.</p>
+                </div>
+
+                <!-- Update 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-raleway">Research</span>
+                        <span class="ml-auto font-raleway text-sm text-dark-gray dark:text-gray-400">Nov 2025</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">User Research Initiated</h3>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Began comprehensive user research studies to understand the needs of people with mobility challenges.</p>
+                </div>
+
+                <!-- Update 5 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-bright-blue/20 text-bright-blue rounded-full text-sm font-raleway">Development</span>
+                        <span class="ml-auto font-raleway text-sm text-dark-gray dark:text-gray-400">Oct 2025</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">AI Model Training Begins</h3>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Started training AI models for navigation and manipulation tasks using simulation environments.</p>
+                </div>
+
+                <!-- Update 6 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-raleway">Milestone</span>
+                        <span class="ml-auto font-raleway text-sm text-dark-gray dark:text-gray-400">Oct 2025</span>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">ARPA-H Award Announcement</h3>
+                    <p class="font-raleway text-dark-gray dark:text-gray-300 text-sm">Official announcement of $41.5M ARPA-H award to fund the RAMMP initiative over the next several years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Focus Areas -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-12 text-center">Research Focus Areas</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 text-center card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-bright-blue/10 dark:bg-bright-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">AI & Machine Learning</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Intelligent control systems and adaptive learning algorithms</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 text-center card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-bright-blue/10 dark:bg-bright-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Robotic Manipulation</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Advanced robotic arms for daily task assistance</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 text-center card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-bright-blue/10 dark:bg-bright-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Smart Navigation</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Autonomous navigation and obstacle avoidance</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 text-center card-hover border border-gray-100 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-bright-blue/10 dark:bg-bright-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-lg text-near-black dark:text-white mb-2">Human-Robot Interaction</h3>
+                    <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Intuitive interfaces and natural interaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Updated -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-near-black dark:text-white mb-6">Stay Updated</h2>
+            <p class="font-raleway text-lg text-dark-gray dark:text-gray-300 max-w-2xl mx-auto mb-8">
+                Want to follow our progress and receive updates on RAMMP developments? Get in touch with us.
+            </p>
+            <a href="contact.html" class="inline-block font-montserrat font-semibold bg-bright-blue text-white px-8 py-3 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <a href="index.html" class="inline-block">
+                            <img src="assets/images/rammp-logo-transparent.png" alt="RAMMP Logo" class="h-10 w-auto">
+                        </a>
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Building the next generation of robotic assistive mobility and manipulation technologies to empower independence.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html" class="text-gray-300 hover:text-bright-blue transition-colors">Home</a></li>
+                        <li><a href="what-is-rammp.html" class="text-gray-300 hover:text-bright-blue transition-colors">What is RAMMP?</a></li>
+                        <li><a href="people.html" class="text-gray-300 hover:text-bright-blue transition-colors">People</a></li>
+                        <li><a href="publications.html" class="text-gray-300 hover:text-bright-blue transition-colors">Publications and Press</a></li>
+                        <li><a href="progress.html" class="text-gray-300 hover:text-bright-blue transition-colors">Progress</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="https://www.herl.pitt.edu" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">HERL</a></li>
+                        <li><a href="https://arpa-h.gov" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ARPA-H</a></li>
+                        <li><a href="https://atdev.tech" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">ATDev</a></li>
+                        <li><a href="https://luci.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">LUCI</a></li>
+                        <li><a href="https://www.kinovarobotics.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">Kinova</a></li>
+                        <li><a href="https://www.ri.cmu.edu/robotics-groups/robotic-caregiving-and-human-interaction-lab/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">Carnegie Mellon</a></li>
+                        <li><a href="https://emprise.cs.cornell.edu/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">Cornell</a></li>
+                        <li><a href="https://robot.neu.edu/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">Northeastern</a></li>
+                        <li><a href="https://engineering.purdue.edu/DuerstockIAS" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-bright-blue transition-colors">Purdue</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400"> 2024 RAMMP Consortium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = !mobileMenu.classList.contains('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            mobileMenuButton.setAttribute('aria-label', isExpanded ? 'Close mobile menu' : 'Open mobile menu');
+        });
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
